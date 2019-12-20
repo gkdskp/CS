@@ -1,0 +1,275 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+
+\title{C Lab Examination Report}
+\author{Gokul K\\[2\baselineskip]
+Roll Number: 21\\[2\baselineskip]
+University Register Number: TVE18CS021}
+\date{17 May 2019}
+
+
+\begin{document}
+\newpage
+\maketitle
+
+\section{Problem 1 - Merging of arrays}
+\subsection{Problem Statement}
+You are given 2 arrays A and B of sizes m and n respectively with elements sorted in both. The problem requires you to merge these 2 arrays whilst maintaining the sorting and output the merged array.
+
+\subsection{Algorithm}
+START
+
+\begin{flushleft}
+\begin{enumerate}
+\item DECLARE integer variables m, n, A[MAX], B[Max], C[2*MAX] where MAX is the maximum number of elements in the array to be merged
+\item  INITIALIZE integer variable i, j, c, d, k with zero
+\item  Read m and n, where m is the size of first array and n is the size of second array
+\item REPEAT while i < m
+\begin{enumerate}
+\item READ A[i], the elements of first array
+\item  i $\leftarrow$ i + 1
+\end{enumerate}
+\item REPEAT while i < n
+\begin{enumerate}
+\item READ B[i], the elements of second array
+\item  i $\leftarrow$ i + 1
+\end{enumerate}
+\item REPEAT while c < m AND d < n
+\begin{enumerate}
+    \item IF A[c] < B[d]
+    \begin{enumerate}
+        \item C[k] $\leftarrow$ A[c]
+        \item Increment k and c
+    \end{enumerate}
+    \item ELSE
+    \begin{enumerate}
+        \item C[k] $\leftarrow$ B[d]
+        \item Increment k and d
+    \end{enumerate}
+\end{enumerate}
+\item REPEAT while c < m 
+\begin{enumerate}
+    \item C[k] $\leftarrow$ A[c]
+    \item Increment k and c
+\end{enumerate}
+\item REPEAT while d < n
+\begin{enumerate}
+    \item C[k] $\leftarrow$ B[d]
+    \item Increment k and d
+\end{enumerate}
+\item REPEAT k times from i:0 to k-1
+\begin{enumerate}
+    \item PRINT C[k]
+\end{enumerate}
+
+\end{enumerate}
+\end{flushleft}
+STOP
+
+\subsection{Description}
+The above described algorithm is the fastest solution to merge to sorted arrays whilst maintaining sorting. After reading the elements of arrays A and B, an iteration is started with termination condition c < m AND d < n, hence the loop terminates while one of the array is completely traversed and all its elements are appended to array C. Inside the loop we append the min(A[c], B[d]) to the array C and increment k, c if element from A is added or d if element from B is added.\newline
+After the loop, either A or B is exhausted. Now for the remaining items in A, if exists, we append them to C. The same is repeated for the remaining items in B.\newline
+After these loops we can be assured that all elements of A and B are added to C and by traversing and printing C we can print the elements of sorted merged array.
+
+\subsection{Source Code}
+Source file is located at ./Source/p1merge.c
+\lstinputlisting[language=C]{Source/p1merge.c}
+\newpage
+\section{Problem 2 - Palindrome}
+\subsection{Problem Statement}
+A palindrome is defined as a word, phrase, or sequence that reads the same backwards as forwards. In this problem you are given a number N and are asked to check if it is a palindrome or not an example of a palindrome number would be 12321.
+\subsection{Algorithm}
+START
+\begin{flushleft}
+\begin{enumerate}
+    \item DECLARE integer variables num, temp and rev $\leftarrow$ 0
+    \item READ num, the number to be checked
+    \item temp $\leftarrow$ num
+    \item REPEAT while num NOT equals 0.
+    \begin{enumerate}
+        \item rev $\leftarrow$ (rev * 10 + num \% 10)
+        \item num $\leftarrow$ num / 10
+    \end{enumerate}
+    \item IF temp EQUALS rev, PRINT 1
+    \item ELSE PRINT 0
+\end{enumerate}
+\end{flushleft}
+STOP
+\subsection{Description}
+This is a simple algorithm. A given number(num) is reversed and stored to a variable rev. The rev is then checked with temp, a variable with the value same as the given value. If both are equal 1 is printed else 0 is printed as per the problem's output requirement. \newline
+To reverse a number, variable rev is initialized with 0. Then for each digits in num, rev is updated as ( rev*10 + num \% 10 ) where num\%10 gives the last digit of the number. Then num is updated by integer division with 10.
+\subsection{Source Code}
+Source file located at: ./Source/p2palindrome.c
+\lstinputlisting[language=C]{Source/p2palindrome.c}
+\newpage
+\section{Problem 3 - Points in a circle}
+\subsection{Problem Statement}
+You are given a point say A in the 2D plane along with radius r and an array of points B . You are asked to print out indices of points lying inside this circle in the increasing order. Also include points lying along the circumference of the circle.
+\subsection{Algorithm}
+START
+\begin{flushleft}
+\begin{enumerate}
+    \item DECLARE integer variables n, pt[MAX], l $\leftarrow$ 0, i $\leftarrow$ 0, t $\leftarrow$ 1. (MAX is the given constraint in the problem question)
+    \item DECLARE floating point variables r, h, k, s, B[MAX][2]
+    \item READ radius r
+    \item READ number of points n
+    \item READ x-coordinate and y-coordinate of the center point h and k
+    \item REPEAT n TIMES
+    \begin{enumerate}
+        \item READ the x-coordinate and y-coordinate B[i][0] and B[j][1]
+        \item COMPUTE s $\leftarrow$ ( (B[i][0] - h)\textsuperscript{2} + (B[i][1] - k)\textsuperscript{2} )
+        \item IF s <= r\textsuperscript{2}
+        \begin{enumerate}
+            \item pt[l] $\leftarrow$ i
+            \item Increment l
+        \end{enumerate}
+        \item Increment i
+    \end{enumerate}
+    \item REPEAT for each element in pt, PRINT its value
+    \item IF pt is empty, PRINT -1
+\end{enumerate}
+\end{flushleft}
+STOP
+\subsection{Description}
+Let a point (x\textsubscript{1}, y\textsubscript{1}) be a point on the XY plane and circle S = \( (x - h)\textsuperscript{2} + (y - k)\textsuperscript{2} \) descibed in the same plane. 
+Let,
+\[S\textsubscript{1} = (x\textsubscript{1} - h)\textsuperscript{2} + (y\textsubscript{1} - k)\textsuperscript{2} \]
+S\textsubscript{1} < 0, if (x\textsubscript{1}, y\textsubscript{1}) is inside the circle.\newline
+S\textsubscript{1} > 0, if (x\textsubscript{1}, y\textsubscript{1}) is outside the circle.\newline
+S\textsubscript{1} = 0, if (x\textsubscript{1}, y\textsubscript{1}) is on the circle.
+
+The program reads coordinates of points and stores it into the two dimensional array B, where each array elements are the arrays with x, y coordinate of the given points. Then it checks S\textsubscript{1} for each points and if S\textsubscript{1} <= 0, the index of the point is appended to pt. Then each element in pt is printed. If pt is empty -1 is printed.
+\subsection{Source Code}
+Source file located at: ./Source/p3circle.c
+\lstinputlisting[language=C]{Source/p3circle.c}
+\newpage
+\section{Problem 4 - Circular Queue Implementations}
+\textbf{This program was not implemented during the exam.}
+\subsection{Problem Statement}
+A queue is a data structure which follows the FIFO principle. The max size of the queue will be fixed and will be provided at start and let it be N and if an element is added to an already full queue it results in an overflow and the element won't be added. Similarly an element cannot be removed from an empty queue.
+
+Circular Queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle.
+
+Just like any queues you have the following operations :
+
+    Enqueue : Insert an element to the end of the queue
+    Dequeue : Remove an element from the front of the queue
+    Print : Print all elements of the queue
+
+If either enqueue or dequeue fails -1 is output
+
+The program takes in one of 4 possible inputs on a loop :
+
+    1 : Enqueue an element
+    2 : Dequeue an element
+    3 : Print all elements
+    4 : Exit the program
+    
+\subsection{Algorithm}
+START
+\begin{flushleft}
+\begin{enumerate}
+    \item DECLARE integer variables n, opt, value, i $\leftarrow$ 0
+    \item CREATE a self referential structure node with members int data and node *link
+    \item DECLARE node variables *temp, *last, *list
+    \item READ n, maximum no of elements in linked list
+    \item REPEAT
+    \begin{enumerate}
+        \item IF opt is 1, DO Enqueue Algorithm
+        \item ELSE IF opt is 2, DO Dequeue Algorithm
+        \item ELSE IF opt is 3, DO Display Algorithm
+        \item ELSE IF opt is 4, BREAK from the loop
+    \end{enumerate}
+\end{enumerate}
+\break
+\textbf{Enqueue Algorithm}
+\begin{enumerate}
+    \item READ value
+    \item IF i >= n, PRINT -1, CONTINUE the loop
+    \item ELSE 
+    \begin{enumerate}
+        \item CREATE node temp
+        \item (temp$\rightarrow$data) $\leftarrow$ value
+        \item (temp$\rightarrow$link) $\leftarrow$ NULL
+        \item IF list is NULL, list $\leftarrow$ temp
+        \item ELSE (last$\rightarrow$link) $\leftarrow$ temp
+    \end{enumerate}
+    \item last $\leftarrow$ temp
+    \item PRINT 0
+\end{enumerate}
+
+\textbf{Dequeue Algorithm}
+\begin{enumerate}
+    \item IF list is NULL OR i <= 0, PRINT -1
+    \item ELSE 
+    \begin{enumerate}
+        \item list $\leftarrow$ (list$\rightarrow$link)
+        \item Decrement i
+        \item PRINT 0
+    \end{enumerate}
+\end{enumerate}
+\textbf{Display Algorithm}
+\begin{enumerate}
+    \item CREATE a node element current $\leftarrow$ list
+    \item if current is NULL, PRINT -1
+    \item ELSE
+    \begin{enumerate}
+        \item REPEAT while current$\rightarrow$ is NOT NULL
+        \item PRINT current$\rightarrow$data
+        \item current $\leftarrow$ (current$\rightarrow$link)
+    \end{enumerate}
+\end{enumerate}
+STOP
+\end{flushleft}
+\subsection{Description}
+These are the standard algorithms for enqueueing, dequeueing and displaying elements in a circular queue.
+\subsection{Source Code}
+Source file located at: ./Source/p4queue.c
+\lstinputlisting[language=C]{Source/p4queue.c}
+\newpage
+\section{Problem 5 - Dutch National Flag}
+\subsection{Problem Statement}
+The Dutch national flag problem (DNF) is a computer science programming problem proposed by Edsger Dijkstra. The flag of the Netherlands consists of three colors: red, white and blue. Given balls of these three colors arranged randomly in a line (the actual number of balls does not matter), the task is to arrange them such that all balls of the same color are together and their collective color groups are in the correct order.
+
+Given an array arr of size N. The array arr has only 0's,1's and 2's. Your duty is to sort the array arr.
+
+For example:
+
+Given arr:[1,0,1,2,0,2]
+
+The output is [0,0,1,1,2,2,]
+\subsection{Algorithm}
+START
+\begin{enumerate}
+    \item DECLARE integer variables size, AR[MAX], i $\leftarrow$ 0, z $\leftarrow$ 0, o $\leftarrow$ 0, t $\leftarrow$ 0.
+    \item READ size, the size of the array.
+    \item REPEAT size times 
+    \begin{enumerate}
+        \item READ AR[i]
+        \item IF AR[i] is 0, increment z
+        \item ELSE IF AR[i] is 1, increment o
+        \item ELSE IF AR[i] is 2, increment t
+    \end{enumerate}
+    \item REPEAT z times
+    \begin{enumerate}
+        \item PRINT 0
+    \end{enumerate}
+    \item REPEAT o times
+    \begin{enumerate}
+        \item PRINT 1
+    \end{enumerate}
+    \item REPEAT t times
+    \begin{enumerate}
+        \item PRINT 2
+    \end{enumerate}
+\end{enumerate}
+STOP
+\subsection{Description}
+ One way to do this program will be reading all the elements and then sorting the array with sort algorithms like selection sort or bubble sort. But for larger sets the sorting algorithm requires much processing power and memory capacity.\newline
+ So we can employ another algorithm which counts the number of zeros(z), ones(o) and twos(t) then print the 0 z times, 1 o times and 2 t times. This will produce the same output but with less hassle.
+ \subsection{Source Code}
+ Source file located at: ./Source/p5dnf.c
+ \lstinputlisting[language=C]{Source/p5dnf.c}
+\end{document}

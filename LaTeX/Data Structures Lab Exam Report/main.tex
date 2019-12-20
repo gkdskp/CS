@@ -1,0 +1,269 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+
+\title{C Lab Examination Report}
+\author{Gokul K\\[2\baselineskip]
+Roll Number: 21\\[2\baselineskip]
+University Register Number: TVE18CS021}
+\date{27 November 2019}
+
+
+\begin{document}
+\newpage
+\maketitle
+
+\section{Problem 1 - Missing numbers}
+\subsection{Problem Statement}
+You are given 2 arrays A and B of sizes m and n respectively. Print out in sorted order the elements in B that are not in A.
+\subsection{Algorithm}
+\begin{verbatim}
+    
+int *missingNumbers(int arr_count, int* arr, int brr_count, int* brr, int* result_count)
+\end{verbatim}
+\newline
+START
+
+\begin{flushleft}
+\begin{enumerate}
+\item DECLARE integer variables key = min = brr[0], brr\_occur[101], list
+\item  INITIALIZE each element in brr\_occur with 0
+\item REPEAT while i < brr\_count
+\begin{enumerate}
+ \item min = (min > brr[i]) ? brr[i]: min;
+\item Increment brr\_occur[(brr[i] \% 100)]
+\end{enumerate}
+\item i = 0
+\item REPEAT while i < arr\_count
+\begin{enumerate}
+ \item Decrement brr\_occur[(arr[i] \% 100)]
+\end{enumerate}
+
+\item REPEAT while i < 100
+\begin{enumerate}
+\item if brr\_occur[i] > 0
+\begin{enumerate}
+    \item list[k] = num = (min/ 100) * 100 + i;
+    \item Increment k and result\_count
+    \end{enumerate}
+\end{enumerate}
+\item Return list
+
+\end{enumerate}
+\end{flushleft}
+STOP
+
+\subsection{Description}
+An zero array of 100 elements is created. For each element in brr AR[brr[i] \% 100] is incremented and for each element in arr AR[arr[i] \% 100] is decremented. Now for elements in AR that are not equal zero corresponds to missing numbers. So it is printed from min to (min+1)\%100 100 times. Each element is taken mod with 100 since it is unique because the span of elements is less than 100. Hence we can use index from 0 to 99 to store the frequency. For retreiving the num for each i num =  (min/ 100) * 100 + i or num = (min/100)*100+ 100 + i depending whether i falls to the left or right of min.
+
+\subsection{Source Code}
+\begin{verbatim}
+    int *missingNumbers(int arr_count, int* arr, int brr_count, int* brr, 
+    int* result_count) {
+    int key = brr[0], min = brr[0], i, brr_occur[101], num, k = 0, j, temp;
+    int *list = (int *) malloc(sizeof(int) * 101), count;
+    
+    *result_count = 0;
+    
+    for(i = 0; i < 101; i++)
+        brr_occur[i] = 0;
+    
+    for(i = 0; i < brr_count; i++){
+        min = (min > brr[i]) ? brr[i]: min;
+        brr_occur[(brr[i] % 100)]++;
+    }
+    
+    for(i = 0; i < arr_count; i++)
+        brr_occur[(arr[i] % 100)]--;
+    
+    i = min % 100;
+    for(count = 0; count < 100; count++)
+    {
+        if(brr_occur[i] != 0)
+        {
+            if(i < min % 100) num = (min/100)*100+ 100 + i;
+            else num = (min/ 100) * 100 + i;
+            list[*result_count] = num;
+            *result_count = *result_count + 1;
+        }
+        
+        i++;
+        if(i == 100) i = 0;
+        
+        
+
+    }
+    
+    return list;
+    
+}
+
+\end{verbatim}
+\newpage
+\section{Problem 2 - Huffman Decoding}
+\subsection{Problem Statement}
+A string of binary number and a Huffman tree is given, we have to find the character string corresponding to the string.
+\subsection{Algorithm}
+START
+\begin{flushleft}
+\begin{enumerate}
+    \item temp = root
+    \item For each character in String
+    \begin{flushleft}
+    \begin{enumerate}
+        \item if character is 0
+        \begin{flushleft}
+    \begin{enumerate}
+    \item temp = temp->left
+    
+    \end{enumerate}
+    \end{flushleft}
+    \item if character is 1
+    \begin{flushleft}
+    \begin{enumerate}
+    \item temp = temp->right
+    \end{enumerate}
+    \end{flushleft}
+    
+    \item if temp->data
+    \begin{flushleft}
+    \begin{enumerate}
+    \item print temp->data
+    \item temp = root
+    \end{enumerate}
+    \end{flushleft}
+    \end{enumerate}
+    \end{flushleft}
+\end{enumerate}
+\end{flushleft}
+STOP
+\subsection{Description}
+A pointer variable is initialised to point to root. Now the string is traversed from left to right. Each time a zero appears temp is relocated to its left and each time a one occurs temp is relocated to its right. If the current temp node has an data, that data is printed and temp is again set to point to root. This is an simple algorithm.
+\subsection{Source Code}
+\begin{verbatim}
+    void decode_huff(node * root, string s) {
+    int i = 0;
+    node *temp = root;
+    
+    while(s[i] != '\0')
+    {
+        
+        if(s[i] == '0')
+        {
+            temp = (temp->left != NULL) ? temp->left: root;
+        }
+        else if(s[i] == '1')
+        {
+            temp = (temp->right != NULL)? temp->right: root;
+        }
+        
+        if(temp->data)
+        {
+            printf("%c", temp->data);
+            temp = root;
+        }
+        i++;
+    }
+}
+\end{verbatim}
+\newpage
+\section{Problem 3 - Even tree}
+\subsection{Problem Statement}
+We are given a graph, we have to find the number of cuts that can be made on the graph such that all such divided graphs has even no. of elements
+\subsection{Algorithm}
+START\newline
+int evenForest(int t\_nodes, int t\_edges, int* t\_from, int* t\_to)
+\newline
+\begin{flushleft}
+\begin{enumerate}
+ \item Initialize adjMat[t\_nodes][t\_nodes] with zeros
+ \item Initialize noOfCon[t\_nodes] and integer variable count with zeros
+ \item Repeat t\_edges times
+\begin{flushleft}
+\begin{enumerate}
+\item adjMat[t\_from][t\_to] = 1
+\end{enumerate}
+\end{flushleft}
+\item Repeat from i: 0 to t\_nodes-1
+\begin{enumerate}
+ \item Find noOfConnected(node)
+ \item If it is even, Increment count
+\end{enumerate}
+
+\item Print count-1
+\end{enumerate}
+\end{flushleft}
+
+\newline\newline\newline
+int noOfConnected(node) function
+\begin{flushleft}
+\begin{enumerate}
+\item Declare n = 1
+\item Repeat from i: 0 to t\_node-1
+\item if there exists an edge from node to i
+\begin{flushleft}
+\begin{enumerate}
+    \item n = n + noOfConnected(i)
+\end{enumerate}
+\end{flushleft}
+\item return n
+
+\end{enumerate}
+\end{flushleft}
+STOP
+\subsection{Description}
+For each node in the graph, an function noOfConnected(node) is called. This returns 1 for each leaf node and 1 + (sum of noOfConnected(node) of all childrens) for a parent node. Now if the noOfConnected elements to a node is even, we can safely segregate it from the rest. The total number of cuts made must be total no. of nodes which has even noOfConnected minus one. Different graphs are illustrated and this property holds for each of them. Hence n(elements with even noOfConnected)-1 is printed.
+\subsection{Source Code}
+\begin{verbatim}
+
+int adjMat[100][100];
+
+int noOfConnected(int t_nodes, int node){
+    int i = 0, n = 1, j = 0, flag;
+    
+    for(i = 0; i < t_nodes; i++)
+    {
+        if(adjMat[node][i] == 1)
+        {
+            n = n + noOfConnected(t_nodes, i);
+        }
+        
+    }
+    
+    return n;
+}
+
+
+// Complete the evenForest function below.
+int evenForest(int t_nodes, int t_edges, int* t_from, int* t_to) {
+    int noOfconnected[t_nodes], i, j;
+    int count = -1;
+    
+    for(i = 0; i < t_nodes; i++)
+        for(j = 0; j < t_nodes; j++)
+            adjMat[i][j] = 0;
+    
+    for(i = 0; i < t_nodes; i++)
+        noOfconnected[i] = 0;
+    
+    for(int i = 0; i < t_edges; i++)
+    {
+        adjMat[t_to[i]-1][t_from[i]-1] = 1;
+    
+    }
+    
+    
+    for(i = 0; i < t_edges; i++){
+        noOfconnected[i] = noOfConnected(t_nodes, i);
+        if(noOfconnected[i] % 2 == 0)
+            count++;
+    }
+    
+    
+    return count;
+}
+
+
+\end{verbatim}
+\end{document}

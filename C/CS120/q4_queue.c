@@ -30,7 +30,7 @@ int main(){
     int n, i = 0, opt, value;
     scanf("%d",&n);
     while(1){
-        scanf(" %d",&x);
+        scanf(" %d",&opt);
         if(opt == 1){
             scanf("%d", &value);
             if(i >= n){

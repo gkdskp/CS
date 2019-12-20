@@ -1,4 +1,4 @@
-/*
+/* ASSIGNMENT QUESTION
 Write a function for sorting N numbers stored in a one dimensional array of integers in
 ascending order. Using this function sort the numbers in each row of a m x n matrix in
 ascending order. Write functions for reading and displaying matrix.

@@ -1,4 +1,4 @@
-/*
+/* ASSIGNMENT QUESTION
 Write a function for checking whether a number is a fibonaccii number or not. Using this
 function write a program for displaying the fibonaccii numbers in a m x n martrix.
 */

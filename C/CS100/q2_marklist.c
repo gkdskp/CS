@@ -1,4 +1,4 @@
-/*
+/* ASSIGNMENT QUESTION
 Write a program to read the rollno, name and 4 marks of a set N students into an array of
 structure. Prepare a rank list ,based on the total marks, of students passed in the examination .
 If the total marks of two students are same they are alloted the same rank. In order to pass the

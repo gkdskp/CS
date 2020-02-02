@@ -99,9 +99,9 @@ int inOrder(struct Node *node)
                 return;
         else
         {
-		inOrder(node->left);
-                printf("%d\t", node->data);
-                inOrder(node->right);
+			inOrder(node->left);
+        	printf("%d\t", node->data);
+        	inOrder(node->right);
         }
 }
 

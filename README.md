@@ -15,3 +15,7 @@
     * [REPORT: FOSS Lab Report](https://gitlab.com/rrdf/compsci/tree/master/LaTeX/FOSS%20Lab%20Report)
 * Shell
     * [CS232: Free & Open Source Software Lab](https://gitlab.com/rrdf/compsci/tree/d0e48814/Shell/CS232)
+* Perl
+    * [CS232: Free & Open Source Software Lab](https://gitlab.com/rrdf/compsci/tree/d0e48814/Perl/CS232)
+* Awk
+    * [CS232: Free & Open Source Software Lab](https://gitlab.com/rrdf/compsci/tree/d0e48814/Awk/CS232)

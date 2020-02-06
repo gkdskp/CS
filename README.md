@@ -14,4 +14,4 @@
     * [REPORT: Data Structures Lab Exam Report](https://gitlab.com/rrdf/compsci/tree/master/LaTeX/Data%20Structures%20Lab%20Exam%20Report)
     * [REPORT: FOSS Lab Report](https://gitlab.com/rrdf/compsci/tree/master/LaTeX/FOSS%20Lab%20Report)
 * Shell
-    * [CS232: FOSS Lab](https://gitlab.com/rrdf/compsci/tree/d0e48814/Shell/CS232)
+    * [CS232: Free & Open Source Software Lab](https://gitlab.com/rrdf/compsci/tree/d0e48814/Shell/CS232)

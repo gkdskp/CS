@@ -3,7 +3,7 @@
 # Write a script called addnames that is to be called as follows ./addnames ulist username
 # Here ulist is the name of the file that contains list of user names and username is a
 # particular student’s username. The script should
-#   i) check that the correct number of arguments was received and print a message, in
+#	i) check that the correct number of arguments was received and print a message, in
 #    case the number of arguments is incorrect
 #   ii) check whether the ulist file exists and print an error message if it does not
 #   iii) check whether the username already exists in the file. If the username exists, print

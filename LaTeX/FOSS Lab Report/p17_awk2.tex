@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{listings}
+\begin{document}
+
+\title{FOSS Lab Report}
+\author{Gokul K\\[2\baselineskip]
+Roll Number: 21\\[2\baselineskip]}
+\date{06 February 2020}
+
+\maketitle
+
+\setcounter{section}{16}
+\section{Awk Scripting II}
+\subsection{Aim}
+Write an awk script to delete duplicated line from a text file. The 
+order of the original lines must remain unchanged
+
+\subsection{Source Code}
+\begin{verbatim}
+    #! /bin/awk -f
+
+    # Write an awk script to delete duplicated line from a text file. The 
+    # order of the original lines must remain unchanged
+    
+    {
+        if(!found[$0]){
+            found[$0]++
+            print $0
+        }
+    }
+\end{verbatim}
+
+\subsection{Output}
+\includegraphics[width=0.9\textwidth]{img/p17/ss.png}\newline
+
+\subsection{Result}
+The above program is run on Manjaro Linux running GNU Awk 5.0.1. 
+Each query is checked and output is verified
+\end{document}

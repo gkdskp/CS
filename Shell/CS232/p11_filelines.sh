@@ -9,4 +9,4 @@ then
 fi
 
 text="`sort $1 | uniq`"
-echo "$text" > samplefile
+echo "$text" > $1

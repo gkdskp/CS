@@ -20,9 +20,9 @@ fi
 perm1="`stat -c %A $1`"
 perm2="`stat -c %A $2`"
 
-if [[ perm1 -eq perm2 ]]
+if [[ $perm1 = $perm2 ]]
 then
-    printf "Common permission: %s\n",$perm1
+    printf "Common permission: %s\n" $perm1
 else
     printf "Permissions\n %s: %s\n%s: %s\n" $1 $perm1 $2 $perm2
 fi

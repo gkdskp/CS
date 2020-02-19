@@ -18,7 +18,7 @@ fi
 
 text="`diff $1 $2 | wc -l`"
 
-if [[ text -eq 0 ]]
+if [[ $text -eq 0 ]]
 then
     echo "Both files are the same. Removing $2"
     rm $2

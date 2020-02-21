@@ -1,8 +1,11 @@
+# GUI Programming
+# Any application - using any one of Gambas, GTK, QT
+
 import gi
 gi.require_version('Gtk', '3.0')
 
 from gi.repository import Gtk
-import math
+import math, random
 
 
 class calcWindow(Gtk.Window):
@@ -29,6 +32,8 @@ class calcWindow(Gtk.Window):
         multiply = Gtk.Button(label="*")
         plus = Gtk.Button(label="+")
         minus = Gtk.Button(label="-")
+        fact = Gtk.Button(label="!")
+        sine = Gtk.Button(label="sine")
 
         digits = [Gtk.Button(label=str(i)) for i in range(10)]
         otherbuttons = [divide, plus, minus, multiply, openbr, closebr, dot]
@@ -42,6 +47,8 @@ class calcWindow(Gtk.Window):
         clear.connect('clicked', self.clearAll)
         log.connect('clicked', self.evalLog)
         root.connect('clicked', self.evalRoot)
+        fact.connect('clicked', self.evalFact)
+        sine.connect('clicked', self.evalSine)
 
         grid.add(delete)
         grid.attach(clear, 1, 0, 1, 1)
@@ -57,7 +64,10 @@ class calcWindow(Gtk.Window):
         grid.attach_next_to(multiply, divide, Gtk.PositionType.RIGHT, 1, 1)
         grid.attach_next_to(plus, multiply, Gtk.PositionType.RIGHT, 1, 1)
 
-        r, c = 3, 0
+        grid.attach_next_to(fact, log, Gtk.PositionType.BOTTOM, 1, 1)
+        grid.attach_next_to(sine, fact, Gtk.PositionType.RIGHT, 1, 1)
+
+        r, c = 3, 2
         for i in range(10):
             grid.attach(digits[i], c, r, 1, 1)
             c = (c + 1) % 4
@@ -76,9 +86,20 @@ class calcWindow(Gtk.Window):
         num = float(eval(self.entry.get_text()))
         self.entry.set_text(str(math.sqrt(num)))
     
+    def evalFact(self, button):
+        num = int(self.entry.get_text())
+        self.entry.set_text(str(math.factorial(num)))
+
+    def evalSine(self, button):
+        num = float(self.entry.get_text())
+        self.entry.set_text(str(math.sin(num)))
+
     def evaluate(self, button):
         eq = self.entry.get_text()
-        self.entry.set_text(str(eval(eq)))
+        try:
+            self.entry.set_text(str(eval(eq)))
+        except:
+            self.entry.set_text("Error")
 
     def deleteSingle(self, button):
         text = self.entry.get_text()

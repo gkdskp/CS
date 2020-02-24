@@ -1,5 +1,4 @@
-/* ASSIGNMENT QUESTION
-Write a Java program to find the duplicate words in a string */
+/* Write a Java program to find the duplicate words in a string */
 
 import java.util.Scanner;
 

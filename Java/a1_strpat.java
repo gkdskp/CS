@@ -1,4 +1,4 @@
-/* ASSIGNMENT QUESTION
+/*
 Write a Java program to print numbers in the following format using do-while 
 loop
 Input: 12345

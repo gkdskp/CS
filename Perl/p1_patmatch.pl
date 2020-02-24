@@ -1,7 +1,5 @@
 #! /usr/bin/env perl
 
-# p6_patmatch.pl
-
 # Create a text file and answer the following queries :
 # 	a) Search for the pattern ‘apple’ in the file and display
 #   the number of occurences.

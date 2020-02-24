@@ -1,4 +1,4 @@
-/* ASSIGNMENT QUESTION
+/*
 Write a Java Program to determine whether a given matrix is an identity matrix 
 */
 

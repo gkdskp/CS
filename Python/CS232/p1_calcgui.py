@@ -15,9 +15,9 @@ class calcWindow(Gtk.Window):
         self.add(outerBox)
 
         self.entry = Gtk.Entry()
-        outerBox.pack_start(self.entry, True, True, 0)
-
         grid = Gtk.Grid()
+        
+        outerBox.pack_start(self.entry, True, True, 0)
         outerBox.pack_start(grid, True, True, 0)
 
         delete = Gtk.Button(label="DEL")
@@ -34,8 +34,8 @@ class calcWindow(Gtk.Window):
         minus = Gtk.Button(label="-")
         fact = Gtk.Button(label="!")
         sine = Gtk.Button(label="sine")
-
         digits = [Gtk.Button(label=str(i)) for i in range(10)]
+        
         otherbuttons = [divide, plus, minus, multiply, openbr, closebr, dot]
         otherbuttons.extend(digits)
 

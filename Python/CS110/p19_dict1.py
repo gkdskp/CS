@@ -1,4 +1,4 @@
- # Write a python program to create a dictionary having key-value pairs (“Name”, age). Write
+# Write a python program to create a dictionary having key-value pairs (“Name”, age). Write
 # the code for following operations
 # 	a. To add a new key value pair.
 # 	b. To display the number of items in the dictionary.

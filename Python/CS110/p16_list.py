@@ -30,7 +30,10 @@ for i in range(0, n):
 		negative = negative + 1
 		nlist.append(l[i])
 
-print("The number of negative numbers is {0} and the list is {1}".format(negative, nlist))
-print("The number of positive numbers is {0} and the list is {1}".format(positive, plist))
+print(
+	"The number of negative numbers is {0} and the list is {1}".format(negative, nlist)
+)
+print(
+	"The number of positive numbers is {0} and the list is {1}".format(positive, plist)
+)
 print("The number of zeroes is {0} and the list is {1}".format(zero, zlist))
-

@@ -8,20 +8,15 @@ s = input("Enter string: ")
 sub = input("Enter substring: ")
 c = 0
 str = s
-s1 = "Hi" # The given string
+s1 = "Hi"  # The given string
 
 for i in range(len(s)):
-	subcheck = s[i:len(sub)+i]
+	subcheck = s[i : len(sub) + i]
 	if subcheck == sub:
 		print("The index of {0}th occurence is {1}".format(c, i))
 		if c == 0 or c == 1:
-			str = str[:i] + s1 + str[len(sub)+i:]
+			str = str[:i] + s1 + str[len(sub) + i :]
 		c += 1
 
-print("Total number of occurence is ",c)
-print("String with the substring \'{}\' replaced by 'Hi' is : {}".format(sub, str))
-
-
-
-
-
+print("Total number of occurence is ", c)
+print("String with the substring '{}' replaced by 'Hi' is : {}".format(sub, str))

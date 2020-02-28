@@ -2,9 +2,19 @@
 # the tuple and also check whether an element exists within a tuple or not.
 
 tu = (
-	"January", "February", "March", "April", 
-	"May", "June", "July", "August", 
-	"September", "October", "November", "December");
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+)
 
 print("The length of the tuple is {0}".format(len(tu)))
 

@@ -4,12 +4,14 @@
 
 def sum(x, n):
 	s = 0
-	for i in range(1, n+1):
-		s = s + float((-1)**(i+1) * x**i)/ i
+	for i in range(1, n + 1):
+		s = s + float((-1) ** (i + 1) * x ** i) / i
 	return s
+
 
 def power(a, b):
 	return a ** b
+
 
 a = int(input("Enter x: "))
 y = int(input("Enter n: "))
@@ -17,5 +19,4 @@ print("The sum of the series is {0}".format(sum(a, y)))
 
 c = int(input("Enter number: "))
 d = int(input("Enter power: "))
-print("{0} raised to {1} is {2}".format(c, d, power(c,d)))
-
+print("{0} raised to {1} is {2}".format(c, d, power(c, d)))

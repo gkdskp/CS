@@ -1,4 +1,4 @@
-# Write a Python program to create a file containing N numbers. Read the contents of 
+# Write a Python program to create a file containing N numbers. Read the contents of
 # the file and display the square of each number.
 
 import pickle
@@ -12,8 +12,8 @@ for i in range(n):
 f.close()
 
 
-f = open("numbers.txt","rb")
+f = open("numbers.txt", "rb")
 for i in range(n):
 	x = int(pickle.load(f))
-	print(x**2)
+	print(x ** 2)
 f.close()

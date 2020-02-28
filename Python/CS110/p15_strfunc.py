@@ -11,4 +11,4 @@ else:
 
 print("The given string in uppercase is ", x.upper())
 print("The given string in lowercase is ", x.lower())
-print("The given string with case changed is ",x.swapcase())
+print("The given string with case changed is ", x.swapcase())

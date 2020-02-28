@@ -8,9 +8,9 @@
 #   5) hard disk information like size of hard-disk, cache memory, model etc
 #   6) File system (Mounted)
 
-echo -e "`cat /etc/os-release`"
-echo -e "`cat /etc/shells/`"
-echo -e "`xset q`"
-echo -e "`cat /proc/meminfo`"
-echo -e "Driver: `sudo hdparm -I /dev/sda`"
-echo -e "`cat /proc/mounts`"
+echo -e "$(cat /etc/os-release)"
+echo -e "$(cat /etc/shells/)"
+echo -e "$(xset q)"
+echo -e "$(cat /proc/meminfo)"
+echo -e "Driver: $(sudo hdparm -I /dev/sda)"
+echo -e "$(cat /proc/mounts)"

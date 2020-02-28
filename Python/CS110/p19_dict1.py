@@ -25,5 +25,3 @@ y = input("Enter the name to be deleted: ")
 del dict[y]
 
 print("The updated dictionary is {0}".format(dict))
-
-

@@ -10,7 +10,7 @@
 #    7) Number of users currently logged in
 
 clear
-log=`who|wc -l`
+log=$(who | wc -l)
 echo "The current user is $USER"
 echo "The current shell is $SHELL"
 echo "The home directory is $HOME"

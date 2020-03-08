@@ -3,10 +3,10 @@ Write a Java program to print numbers in the following format using do-while
 loop
 Input: 12345
 Output: 12345
-				1234
-				123
-				12
-				1
+		1234
+		123
+		12
+		1
 */
 
 import java.util.Scanner;

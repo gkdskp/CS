@@ -42,11 +42,17 @@ void charFreq(char *s){
 }
 
 void main(){
-	printf("\nMake sure the text file is saved as file.txt\n");
 	FILE *fp;
 	int i;
 	char s[200], ch;
 	fp=fopen("file.txt", "r");
+
+	if(!fp){
+		printf("file.txt does not exists");
+		printf("\nMake sure the text file is saved as file.txt\n");
+		return;
+	}
+
 	for(i = 0; (ch = getc(fp)) != EOF; i++)
 		s[i] = ch;
 	s[i] = '\0';

@@ -16,6 +16,7 @@ Repository of solutions worked on during college
 	│   ├── Visual Pollution			# HS210 Life Skills presentation
 	│   └── Water Sensor for Tanks			# BE102 Design & Engineering presentation
 	├── Perl					# Script for CS232 FOSS Lab
+	├── PHP						# Script for CS232 FOSS Lab
 	├── Python
 	│   ├── CS110					# Programs for Computer Science Workshop
 	│   └── CS232					# Program for CS232 FOSS Lab

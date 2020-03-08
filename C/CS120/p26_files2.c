@@ -7,8 +7,14 @@ void main(){
     int w = 0, s = 0;
     char pr, ch;
 
-	printf("\nMake sure the text file is saved as file.txt\n");
     fp = fopen("file.txt", "r");
+
+	if(!fp){
+		printf("file.txt does not exists");
+		printf("\nMake sure the text file is saved as file.txt\n");
+		return;
+	}
+
 	ch = getc(fp);
 	pr = ch;
 

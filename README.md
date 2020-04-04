@@ -7,6 +7,7 @@ Repository of solutions worked on during college
     ├── C 
     │   ├── CS100                            # Programs for Computer Programming
     │   ├── CS120                            # Programs for Computer Programming Lab
+    │   ├── CS204                            # Programs for Operating Systems
     │   └── CS231                            # Programs for Data Structures Lab							
     ├── Java                                 # Programs for CS206 Object Oriented Design & Programming
     ├── LaTeX 

@@ -5,25 +5,6 @@ C is having 7 instances. Input a snapshot of the current allocation and maximum
 requirement. If the system is in safe state give the sequence of processes 
 satisfying the safety criteria */
 
-/*
-p0
-0 1 0
-7 5 3
-p1
-2 0 0
-3 2 2
-p2
-3 0 2
-9 0 2
-p3
-2 1 1
-2 2 2
-p4
-0 0 2
-4 3 3
-*/
-
-
 #include <string.h>
 #include "common.h"
 

@@ -1,3 +1,5 @@
+/* Common header for a1, a2 and a3 */
+
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,7 +1,7 @@
 # CS
 Repository of solutions worked on during college
 
-## Contents
+<!-- ## Contents
     .
     ├── Awk                                  # Scripts for CS232 FOSS Lab
     ├── C 
@@ -21,5 +21,6 @@ Repository of solutions worked on during college
     ├── Python 
     │   ├── CS110                            # Programs for Computer Science Workshop
     │   └── CS232                            # Program for CS232 FOSS Lab
-    └── Shell                                # Scripts for CS232 FOSS Lab
+    ├── Shell                                # Scripts for CS232 FOSS Lab
+    └── VHDL                                 # Scripts for CS234 Digital System Lab -->
 

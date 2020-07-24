@@ -2,11 +2,11 @@
 To execute: Run `source /path/to/dbsetup.sql` in mysql
 */
 
-CREATE DATABASE Users;
+CREATE DATABASE IF NOT EXISTS Users;
 
 USE Users;
 
-CREATE TABLE Profile (
+CREATE TABLE IF NOT EXISTS Profile (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     uname VARCHAR(30),
     lname VARCHAR(30),

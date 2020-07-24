@@ -13,7 +13,7 @@ BEGIN{
     getline < "/dev/tty"
 
     split($0, date, "-")
-    
+
     if(date[1] < 1 || date[1] > 31){
         print "Invalid date: " date[1]
         exit

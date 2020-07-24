@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{listings}
+\begin{document}
+
+\title{FOSS Lab Exam Report}
+\author{Gokul K\\[2\baselineskip]
+Roll Number: 21 ( TVE18CS021 )\\[2\baselineskip]}
+\date{24 July 2020}
+
+\maketitle
+\newpage
+\section{Problem 1}
+\subsection{Problem Statement}
+If p is the perimeter of a right angle triangle with integral length sides, {a,b,c}, there are exactly three solutions for p = 120.  {20,48,52}, {24,45,51}, {30,40,50} 
+For which value of p ≤ 1000, is the number of solutions maximised? Write a shell script   to find the same.
+
+\subsection{Theory}
+A right angle triangle with sides a, b, c satisifies Pythagoras theorem
+\(a^2 + b^2 = c^2\)
+
+Let the given perimeter be P. Then
+\(a + b + c = P\)
+
+
+So we will find all c that satisifies both condition
+
+\subsection{Working}
+In this program we will find the number of solution for each perimeter from 1 to 1000. For each number we will loop through i from 0 to 1000, j from 1 to 1000 and find c such that it holds both pythagoras theorem and the perimeter.
+If such c is found a counter is incremented. The final value of the counter for each number is redirected to a file which is then sorted and only the first line is printed
+
+\subsection{Files}
+To run the file, extract the source zip file
+and execute
+\begin{verbatim}
+    sh Gokul_TVE18CS021_program1.sh
+\end{verbatim}
+
+\subsection{Test case}
+Since the output is constant only one test run is conducted which outputted:
+\begin{verbatim}
+    The number with maximum number of solution and its number of solution is 
+    840 8
+\end{verbatim}
+
+
+\subsection{Source Code}
+\begin{verbatim}
+    #! /bin/bash
+
+# If p is the perimeter of a right angle triangle with integral 
+# length sides, {a,b,c}, there are exactly three solutions for p = 120.  
+# {20,48,52}, {24,45,51}, {30,40,50} 
+# For which value of p ≤ 1000, is the number of solutions maximised? 
+# Write a shell script   to find the same.
+
+# Since the runtime of the program is O(P^2)
+# the program takes quite a while when P is as large as
+# 1000
+
+NoOfSolutions() {
+        if (($1 % 2 != 0)); then
+                echo "0"
+        else
+                count=0
+
+                for ((i = 1; i <= $1; i++)); do
+                        for ((j = $((i + 1)); j <= $1; j++)); do
+                                c=$(($1 - i - j))
+                                if ((i * i + j * j == c * c)); then
+                                        count=$((count + 1))
+                                fi
+                        done
+                done
+                echo $count
+        fi
+}
+
+for ((i = 1; i <= 1000; i++)); do
+        echo "$i $(NoOfSolutions $i)" >>temp
+done
+
+echo "The number with maximum number of solution and its number of solution is is"
+echo `cat temp | sort -k 2 -r | head -n 1`
+
+}
+\end{verbatim}
+
+\newpage
+\section{Problem 2}
+\subsection{Problem Statement}
+Write a script to count the line of a file, to also compute the total number of bytes and the total number of words in the input files.
+
+\subsection{Theory}
+wc is a UNIX command used to count the number of lines, characters, words, size etc of a file
+
+\subsection{Working}
+In this program we will use wc command to find the asked properties of the file.
+
+\subsection{Files}
+To run the file, extract the source zip file
+and execute
+\begin{verbatim}
+    sh Gokul_TVE18CS021_program2.sh /path/to/file
+\end{verbatim}
+
+\subsection{Test case}
+On the Gokul\_TVE18CS021\_program2.sh itself
+\begin{verbatim}
+No of lines: 21
+No of bytes: 469
+No of words: 97
+\end{verbatim}
+
+On the Gokul\_TVE18CS021\_program1.sh
+\begin{verbatim}
+No of lines: 37
+No of bytes: 902
+No of words: 182
+\end{verbatim}
+
+On the exam report
+\begin{verbatim}
+No of lines: 710
+No of bytes: 83765
+No of words: 2684
+\end{verbatim}
+
+\subsection{Source Code}
+\begin{verbatim}
+#! /bin/bash
+
+# Write a script to count the line of a file, to 
+# also compute the total number of bytes and the 
+# total number of words in the input files.
+
+if [[ $# != 1 ]]
+then
+        echo "Give a file as an argument"
+fi
+
+if [[ !(-f $1) ]]
+then
+        echo "$1 is not a valid file"
+fi
+
+noOfLines=$( cat $1 | wc -l )
+noOfBytes=$( cat $1 | wc -c )
+noOfWords=$( cat $1 | wc -w )
+
+printf "No of lines: %s\nNo of bytes: %s\nNo of words: %s\n" \
+"$noOfLines" \
+"$noOfBytes" \
+"$noOfWords"
+
+\end{verbatim}
+
+\end{document}
+

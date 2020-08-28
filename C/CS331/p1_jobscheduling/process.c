@@ -87,3 +87,11 @@ int comp_total_rem_time(Process_list * process_list)
 	}
 	return rem_time;
 }
+
+void free_mem(Process_list * process_list)
+{
+	for(size_t i = 0; i < process_list->length; ++i) free(process_list->processes[i]);
+
+	free(process_list->processes);
+	free(process_list);
+}

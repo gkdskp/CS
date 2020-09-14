@@ -45,7 +45,6 @@ CREATE TABLE Employee(
 	Salary INT(6),
 	Dept_id INT(4)
 );
-
 INSERT INTO Employee
 VALUES
 	(66928, "BLAZE", "MANAGER", 55000, 3001),
@@ -97,3 +96,4 @@ WHERE Dept_id=2001;
 
 SELECT * FROM Employee
 WHERE Salary<30000 OR Dept_id=1001;
+

@@ -95,7 +95,7 @@ VALUES
 	(69000, "JULIUS", "CLERK", 21000, 3001),
 	(69324, "MARKER", "CLERK", 28000, 1001);
 			\end{verbatim}
-			\includegraphics{1.jpg}
+			\includegraphics{img/p2/ss1.png}
 		
 			\item 
 			Display the details of all the employees.
@@ -104,7 +104,7 @@ VALUES
 			\begin{verbatim}
 SELECT * FROM Employee;
 			\end{verbatim}
-			\includegraphics{2.JPG}
+			\includegraphics{img/p2/ss2.png}
 		
 		\item 
 		Display the employee numbers, names and designation of all employees.
@@ -114,7 +114,7 @@ SELECT * FROM Employee;
 SELECT Emp_no, Ename, Designation
 FROM Employee;
 		\end{verbatim}
-		\includegraphics{3.jpg}
+		\includegraphics{img/p2/ss3.png}
 
 		\item
 		Suppose the emp\_no 68454 has left the company. Delete the employee
@@ -124,7 +124,7 @@ from the database.
 DELETE FROM Employee
 WHERE Emp_no=68454;
 		\end{verbatim}
-	\includegraphics{4.jpg}
+	\includegraphics{img/p2/ss4.png}
     
     \item
     Suppose a new employee joins the company under department 2001 as
@@ -137,8 +137,8 @@ INSERT INTO Employee
 (Emp_no, Ename, Designation, Dept_id) VALUES
 	(69876, "Rahul", "ANALYST", 2001);
     \end{verbatim}
-    \includegraphics[]{5.jpg}
-
+    \includegraphics[]{img/p2/ss5.png}
+	5.jp
 \item
 Find the details of employees with salary > 25000 working in department
 with id 2001.
@@ -148,7 +148,7 @@ Syntax:
 SELECT * FROM Employee
 WHERE Salary>25000 AND Dept_id=2001;
 \end{verbatim}
-\includegraphics[]{6.jpg}
+\includegraphics[]{img/p2/ss6.png}
 
 \item
 		Suppose the newly added employee's salary is now fixed. Add his salary
@@ -159,7 +159,7 @@ UPDATE Employee
 SET Salary=40000
 WHERE Emp_no=69876;
 		\end{verbatim}
-		\includegraphics{img/p2/ssg}
+		\includegraphics{img/p2/ss7.png}
 		
 	\item
 	Suppose the employee ADELYN is now promoted as Analyst. Update his

@@ -26,7 +26,7 @@
 \includegraphics[width=5cm]{img/emblem.jpeg}\\[3cm]
 {\Large GOKUL K\\ S5  CSE \\ Roll No:21\\ TVE18CS021 }\\[1cm]
 
-
+ 
 \textit{ }\\[2cm]
 Department of Computer Science\\[0.2cm]
 \today
@@ -89,15 +89,19 @@ f) GROUP BY \& HAVING\\
 			quantity INT NOT NULL,
 			orderdate DATE,
 			custid INT,
-			FOREIGN KEY (itemid) REFERENCES Items(itemid) ON UPDATE CASCADE ON DELETE CASCADE,
-			FOREIGN KEY (custid) REFERENCES Customers(custid) ON UPDATE CASCADE ON DELETE CASCADE 
+			FOREIGN KEY (itemid) REFERENCES Items(itemid) ON UPDATE CASCADE
+			ON DELETE CASCADE,
+			FOREIGN KEY (custid) REFERENCES Customers(custid) ON UPDATE CASCADE
+			 ON DELETE CASCADE 
 	);
 	CREATE TABLE Delivery (
 			deliveryid INT PRIMARY KEY,
 			orderid INT,
 			custid INT,
-			FOREIGN KEY (orderid) REFERENCES Orders(orderid) ON UPDATE CASCADE ON DELETE CASCADE,
-			FOREIGN KEY (custid) REFERENCES Customers(custid) ON UPDATE CASCADE ON DELETE CASCADE 
+			FOREIGN KEY (orderid) REFERENCES Orders(orderid) ON UPDATE CASCADE
+			 ON DELETE CASCADE,
+			FOREIGN KEY (custid) REFERENCES Customers(custid) ON UPDATE CASCADE 
+			ON DELETE CASCADE 
 	);
 	INSERT INTO Items
 	VALUES
@@ -280,10 +284,11 @@ f) GROUP BY \& HAVING\\
 	(SELECT custname, address FROM Customers)
 			EXCEPT
 	(SELECT c.custname, c.address FROM Customers AS c, Orders as o, Items as i
-	WHERE o.itemid = i.itemid AND c.custid = o.custid AND itemname = 'Samsung Galaxy S4');
+	WHERE o.itemid = i.itemid AND c.custid = o.custid
+	 AND itemname = 'Samsung Galaxy S4');
 	
 	\end{verbatim}
-	\includegraphics[]{img/p7/ss12.png}
+	\includegraphics[width=\textwidth]{img/p7/ss12.png}
 	
 	
 	\item
@@ -295,8 +300,8 @@ f) GROUP BY \& HAVING\\
 	SELECT * FROM Customers RIGHT OUTER JOIN Orders ON Customers.custid = Orders.custid;
 	
 	\end{verbatim}
-	\includegraphics[]{img/p7/ss13.1.png}
-	\includegraphics[]{img/p7/ss13.2.png}
+	\includegraphics[width=\textwidth]{img/p7/ss13.1.png}
+	\includegraphics[width=\textwidth]{img/p7/ss13.2.png}
 	
 	
 	\item
@@ -308,7 +313,7 @@ f) GROUP BY \& HAVING\\
 	GROUP BY state;
 	
 	\end{verbatim}
-	\includegraphics[]{img/p7/ss14.png}
+	\includegraphics[width=\textwidth]{img/p7/ss14.png}
 	
 	
 	\item
@@ -327,10 +332,10 @@ f) GROUP BY \& HAVING\\
 			)
 	);
 	\end{verbatim}
-	\includegraphics[]{img/p7/ss15.png}
+	\includegraphics[width=\textwidth]{img/p7/ss15.png}
 	
 \end{itemize}
 \section*{Result}
-	The basic SQL for creating and modifying a table is executed and their output
-	is verified in a PostgreSQL environment.
+Implemented the program for nested queries, set operators and join statements using MariaDB 10.5 and the following output
+were obtained.
 \end{document}

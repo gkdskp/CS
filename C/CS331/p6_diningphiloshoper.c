@@ -1,6 +1,5 @@
 /* Write a program to simulate the working of the dining
 philosopher’s problem */
-/* Code from https://github.com/ceadoor/System-Software-lab */
 
 #include <stdio.h>
 #include <semaphore.h>

@@ -139,9 +139,7 @@ void lfu(int * frames, int * pages, size_t n_frames, size_t n_pages)
 		{
 			if(i < n_frames) index = i;
 			
-			else {
-				index = find_lfu(freq_used, n_frames);
-			}
+			else index = find_lfu(freq_used, n_frames);
 
 			++n_faults;
 			printf("\nFault");

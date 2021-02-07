@@ -1,3 +1,5 @@
+/* Implement the symbol table with suitable hashing */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -214,7 +216,3 @@ int main()
 		}
 	} while(choice != 6);
 }
-
-
-
-

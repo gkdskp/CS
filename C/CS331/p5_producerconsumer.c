@@ -1,4 +1,5 @@
-/* Implement the producer-consumer problem using semaphores */
+/* Implement the producer-consumer problem using semaphores
+	Code from https://github.com/ceadoor/System-Software-lab */
 
 #include <stdio.h>
 #include <stdlib.h>

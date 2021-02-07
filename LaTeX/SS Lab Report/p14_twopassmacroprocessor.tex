@@ -63,7 +63,21 @@ Pass-one
 1. Scan the input program for MACRO mnemonic
 2. If found, add its label to NAMTAB
 3. Do until MEND mnemonic is found,
-	3.1 Copy the opcode and operand to DEFTAB
+	3.1           child: Text("Feed empty. Pull to refresh"));
+	else if (index == 0)
+	  return Column(
+		mainAxisSize: MainAxisSize.min,
+		children: [
+		  Text(
+			"Pull to refresh",
+			style: Theme.of(context)
+				.textTheme
+				.caption
+				.copyWith(fontSize: 10.0),
+		  ),
+		  buildTitleWidget(),
+		],
+  Copy the opcode and operand to DEFTAB
 	\end{verbatim}
 
 Pass-two

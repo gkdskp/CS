@@ -1,0 +1,49 @@
+/*
+1. Create a table named EMPLOYEE with the following details.
+        Columnname datatype size
+        EMPNO NUMBER 4
+        ENAME VARCHAR2 10
+        DESIGNATION VARCHAR2 10
+        SALARY NUMBER 8,2
+2.      a) Alter the table by adding column QUALIFICATION.
+        b) Alter the table by modifying the EMPNO size to 6.
+        c) Rename the table EMPLOYEE to EMP_NEW.
+        d) Drop the column QUALIFICATION.
+3. Truncate the table EMP_NEW
+4. Drop the table EMP_NEW
+*/
+
+CREATE TABLE EMPLOYEE (
+        EMPNO INTEGER(4) PRIMARY KEY,
+        ENAME VARCHAR(10),
+        DESIGNATION VARCHAR(10),
+        SALARY DECIMAL(8, 2)
+);
+DESC EMPLOYEE;
+
+ALTER TABLE EMPLOYEE
+ADD QUALIFICATION VARCHAR(10);
+DESC EMPLOYEE;
+
+ALTER TABLE EMPLOYEE
+MODIFY COLUMN EMPNO INTEGER(6);
+DESC EMPLOYEE;
+
+ALTER TABLE EMPLOYEE
+RENAME TO EMP_NEW;
+DESC EMP_NEW;
+
+ALTER TABLE EMP_NEW
+DROP COLUMN QUALIFICATION;
+DESC EMP_NEW;
+
+INSERT INTO EMP_NEW
+VALUES (1, "Name1", "Manager", 2000.00);
+SELECT * FROM EMP_NEW;
+
+TRUNCATE TABLE EMP_NEW;
+SELECT * FROM EMP_NEW;
+
+DROP TABLE EMP_NEW;
+DESC EMP_NEW;
+

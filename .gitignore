@@ -1,0 +1,4 @@
+# LaTex files
+*.sty
+*.pdf
+*.gz

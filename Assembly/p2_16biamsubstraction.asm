@@ -1,7 +1,7 @@
 ; Substraction of two 16-bit numbers using immediate addressing mode
 
 DATA SEGMENT
-	difference DW ?
+    difference DW ?
 ENDS DATA
 
 CODE SEGMENT
@@ -12,7 +12,7 @@ START:
     MOV AX, 200
     MOV BX, 100
     SUB AX, BX
-	MOV [difference], AX
+    MOV [difference], AX
     MOV AH, 04CH
     INT 21H
 CODE ENDS

@@ -20,9 +20,9 @@ START:
 	SUB AX, BX
 	MOV [difference], AX
 	MOV AX, [subtrahend+2]
-	MOV BX, [subtrahend+2]
+	MOV BX, [minuend+2]
 	SUB AX, BX
-	MOV [difference], AX
+	MOV [difference+2], AX
 	MOV AH, 04CH
     INT 21H
 ENDS CODE

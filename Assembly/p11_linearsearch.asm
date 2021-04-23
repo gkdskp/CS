@@ -1,0 +1,47 @@
+; Perform Linear search on 16-bit numbers.
+
+DATA SEGMENT
+  arr DW 1000H, 3000H, 4000H, 2000H
+  count DW 4
+  query DW 3001H
+  msg1 DB "Found$"
+  msg1len DW $-msg1
+  msg2 DB "Not found$"
+  msg2len DW $-msg2
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+START:
+  MOV AX, DATA
+  MOV DS, AX
+  MOV CX, count
+  LEA SI, arr
+  XOR AX, AX
+
+SEARCHLOOP:
+  MOV AX, query
+  CMP AX, [SI]
+  JE FOUND
+INCRLOOP:
+  ADD SI, 2
+  LOOP SEARCHLOOP
+  JMP NOTFOUND
+
+FOUND:
+  LEA DX, msg1
+  MOV AH, 09H
+  INT 21H
+  JMP EXIT
+
+NOTFOUND:
+  LEA DX, msg2
+  MOV AH, 09H
+  INT 21H
+  JMP EXIT  
+
+EXIT:
+  MOV AH, 4CH
+  INT 21H
+CODE ENDS
+END START

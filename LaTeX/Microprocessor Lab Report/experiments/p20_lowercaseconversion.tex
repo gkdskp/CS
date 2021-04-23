@@ -1,0 +1,46 @@
+\section{Lowercase conversion}
+\subsection{Aim}
+To convert a string to lowercase
+
+\subsection{Code}
+\begin{lstlisting}
+  DATA SEGMENT
+  str DB 'HELLO WORLD$'
+  strlen EQU $-str
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+START:
+  MOV AX, DATA
+  MOV DS, AX
+  MOV CX, strlen
+  LEA SI, str
+
+CHARLOOP:
+  CMP BYTE PTR SI, ' '
+  JE INCR
+  OR [SI], 20H
+INCR:
+  INC SI
+  LOOP CHARLOOP
+  MOV DX, OFFSET str
+  MOV AH, 09H
+  INT 21H 
+         
+EXIT:
+  MOV AH, 4CH
+  INT 21H
+CODE ENDS
+END START
+\end{lstlisting}
+
+\subsection{Output}
+\begin{center}
+	\includegraphics[width=0.90\textwidth]{img/p20/ss1.png}
+	\includegraphics[width=0.90\textwidth]{img/p20/ss2.png}
+\end{center}
+
+\subsection{Result}
+A uppercase string was converted to lowercase
+

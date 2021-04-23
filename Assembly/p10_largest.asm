@@ -1,0 +1,31 @@
+; Find the largest number in an array.
+
+DATA SEGMENT
+  arr DW 1000H, 3000H, 4000H, 2000H
+  count DW 4
+  largest DW ?
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+START:
+  MOV AX, DATA
+  MOV DS, AX
+  MOV CX, count
+  LEA SI, arr
+  XOR AX, AX
+
+LARGELOOP:
+  CMP AX, [SI]
+  JGE INCRLOOP
+  MOV AX, [SI]
+INCRLOOP:
+  ADD SI, 2
+  LOOP LARGELOOP
+
+EXIT:
+  MOV largest, AX
+  MOV AX, 4CH
+  INT 21H
+CODE ENDS
+END START

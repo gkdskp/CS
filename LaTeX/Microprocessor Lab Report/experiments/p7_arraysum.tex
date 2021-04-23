@@ -1,0 +1,42 @@
+\section{Array sum}
+\subsection{Aim}
+To find the sum of an array of 32bit numbers
+
+\subsection{Code}
+\begin{lstlisting}
+DATA SEGMENT
+  arr DW 1000H, 2000H, 3000H, 4000H
+  count DW 4
+  sum DW ?
+ENDS DATA
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+START:
+  MOV AX, DATA
+  MOV DS, AX
+  MOV CX, count
+  LEA SI, arr
+  XOR AX, AX
+
+SUMLOOP:
+  ADD AX, [SI]
+  ADD SI, 2
+  LOOP SUMLOOP
+
+EXIT:
+  MOV sum, AX
+  MOV AX, 4CH
+  INT 21H
+ENDS CODE
+END START
+\end{lstlisting}
+
+\subsection{Output}
+\begin{center}
+	\includegraphics[width=0.90\textwidth]{img/p7/ss1.png}
+	\includegraphics[width=0.90\textwidth]{img/p7/ss2.png}
+\end{center}
+
+\subsection{Result}
+The sum of an 32 bit array was found out in emu8086

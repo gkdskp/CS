@@ -40,6 +40,105 @@ OS. After this, we can use the memory segment for communication. When we are
 done with the shared memory segment, the program should detach itself from it
 using shmdt(). In order to destroy the shared memory segment, shmctl() is used.
 
+
+\subsection{Algorithm}
+\subsubsection{Ordinary pipe}
+\begin{enumerate}
+  \item Initialize pipe file descriptor
+  \item Fork a child process and pass the file descriptor
+  \item In child process,
+  \begin{enumerate}
+    \item Close read end of pipe
+    \item Write a message to the write end of pipe
+    \item Sleep for some time
+  \end{enumerate}
+  \item In parent proces,
+  \begin{enumerate}
+    \item Wait for child process to terminate
+    \item Close the write end of pipe
+    \item Read from the pipe
+    \item Print the message read
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Named Pipe}
+\begin{enumerate}
+  \item In user1 program,
+  \begin{enumerate}
+    \item Make a named pipe file description with mkfifo providing a known path
+    \item Repeat,
+    \begin{enumerate}
+      \item Open the file in write only mode
+      \item Read message from the input
+      \item Print the read message
+      \item Write the message to the file
+      \item Close the file descriptor
+      \item Open the file at path on read only mode
+      \item Read message from the file descriptor 
+      \item Close the file
+    \end{enumerate}
+  \end{enumerate}
+  \item In user2 program,
+  \begin{enumerate}
+    \item Make a named pipe file description with mkfifo providing same path
+    \item Repeat,
+    \begin{enumerate}
+      \item Open the file at path on read only mode
+      \item Read message from the file descriptor 
+      \item Print the read message
+      \item Close the file
+      \item Open the file in write only mode
+      \item Read reply from the input
+      \item Write the reply to the file
+      \item Close the file descriptor
+    \end{enumerate}
+   
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Message Queues}
+\begin{enumerate}
+  \item In writer process,
+  \begin{enumerate}
+    \item Create a message struct with 
+      message type (long) and message body (string)
+    \item Create a key using ftok
+    \item Create a message id using msgget
+    \item Create a message with type = 1
+    \item Send message using msgsnd
+  \end{enumerate}
+
+  \item In reader process,
+  \begin{enumerate}
+    \item Create a message struct with 
+      message type (long) and message body (string)
+    \item Create a key using ftok
+    \item Create a message id using msgget
+    \item Recieve message using msgrcv
+    \item Print the recieved message
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Shared Memory}
+\begin{enumerate}
+  \item In writer process, 
+  \begin{enumerate}
+    \item Create a key using ftok
+    \item Create a shared memory segment id using shmget
+    \item Attach the message using shmat
+    \item Detach from the shared memory using shmdt
+  \end{enumerate}
+  \item In reader process, 
+  \begin{enumerate}
+    \item Create a key using ftok
+    \item Create a shared memory segment id using shmget
+    \item Read the message using shmat
+    \item Print the received message
+    \item Detach from the shared memory using shmdt
+    \item Delete the shared memory segment using shmctl
+  \end{enumerate}
+\end{enumerate}
+
 \subsection{Source Code}
 \subsubsection{Ordinary pipe}
 \begin{lstlisting}[language=C]

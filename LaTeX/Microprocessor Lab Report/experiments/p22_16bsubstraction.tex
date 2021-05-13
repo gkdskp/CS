@@ -1,0 +1,39 @@
+\section{16 bit substraction}
+\subsection{Aim}
+To substract two 16 bit numbers
+
+\subsection{Code}
+\begin{lstlisting}
+ORG 0000H
+
+; R0R1 forms 2000H
+MOV R0, #20H
+MOV R1, #00H
+
+; R2R3 form 1000H
+MOV R2, #10H
+MOV R3, #00H
+
+; Substraction of upper bytes
+MOV A, R0
+SUBB A, R2
+MOV R4, A ; Upper byte of result stored in R4
+
+; Substraction of lower bytes
+MOV A, R1
+SUBB A, R3
+MOV R5, A ; Upper byte of result stored in R5
+
+END
+\end{lstlisting}
+
+\subsection{Output}
+\textbf{Input} 2000H (R0R1), 1000H (R2R3)\\
+\textbf{Output} 1000H (R4R5)
+\begin{center}
+	\includegraphics[width=\textwidth]{img/p22.png}
+\end{center}
+
+\subsection{Result}
+Two 16 bit numbers were substracted in mcu8051ide
+

@@ -18,9 +18,9 @@
 					<input name="username" type="text">
 					<br/>
 
-                    <label for="name">Name:</label><br/>
+          <label for="name">Name:</label><br/>
 					<input name="name" type="text">
-                    <br/>
+          <br/>
                     
 					<label for="email">Email:</label><br/>
 					<input name="email" type="text">
@@ -28,22 +28,22 @@
 
 					<label for="password">Password:</label><br/>
 					<input name="password" type="password">
-                    <br/>
+          <br/>
 
-                    <label for="age">Age:</label><br/>
-                    <input name="age" type="number" max="115">
-                    <br/>
+          <label for="age">Age:</label><br/>
+          <input name="age" type="number" max="115">
+          <br/>
 
-                    <label for="address">Address:</label><br/>
-                    <textarea name="address"></textarea><br/>
+          <label for="address">Address:</label><br/>
+          <textarea name="address"></textarea><br/>
 
-                    <label for="city">City:</label><br/>
+          <label for="city">City:</label><br/>
 					<input name="city" type="text">
-                    <br/>
+          <br/>
 
-                    <label for="zip">Zip code:</label><br/>
+          <label for="zip">Zip code:</label><br/>
 					<input name="zip" type="number">
-                    <br/>
+          <br/>
 
 					<button type="submit" name="signup-submit">Sign Up</button>
 					<br/>

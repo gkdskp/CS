@@ -8,6 +8,7 @@ layer protocol - Server */
 #include <netinet/in.h>
 #include <errno.h>
 #include <unistd.h>
+#include <string.h>
 
 // The number of connection requests to be queued, all exceeding
 // connections will be rejected
@@ -20,7 +21,7 @@ typedef struct sockaddr_in sockaddr_in_t;
 
 extern int errno;
 
-const int PORT = 5000;
+const int PORT = 8080;
 const char *MESSAGE = "Hello world";
 
 // Create a socket with TCP as protocol
@@ -83,13 +84,25 @@ void connect_client(const int *socket_fd, int *client_socket_fd) {
 
 // Send the MESSAGE to client
 void send_message(const int *client_socket_fd) {
-  if(send(*client_socket_fd, (void *)MESSAGE, sizeof(MESSAGE), 0) == -1) {
-    perror("Sending message failed");
-    fprintf(stderr, "Errno: %d\n", errno);
-    exit(EXIT_FAILURE);
+  ssize_t message_send_total = 0, message_send;
+
+  while(message_send_total < sizeof(MESSAGE)) {
+    message_send = send(
+      *client_socket_fd, 
+      MESSAGE+message_send_total, 
+      strlen(MESSAGE+message_send_total)+1, 
+      0
+    );
+
+    if(message_send == -1) {
+      perror("Sending message failed");
+      fprintf(stderr, "Errno: %d\n", errno);
+      exit(EXIT_FAILURE);
+    }
+    message_send_total += message_send;
   }
 
-  printf("Sending message success\n");
+  printf("Sending message success. Send %d bytes\n", message_send_total);
 }
 
 // Close the socket

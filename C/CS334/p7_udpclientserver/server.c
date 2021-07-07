@@ -80,7 +80,7 @@ void send_acknowledgement(
 
 int main() {
   int socket_fd;
-  sockaddr_in_t client_addr;
+  sockaddr_in_t client_addr; // Used to store client address
   unsigned int client_addr_size = sizeof(client_addr);
 
   create_socket(&socket_fd);

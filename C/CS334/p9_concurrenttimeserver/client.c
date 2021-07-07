@@ -94,7 +94,7 @@ void send_acknowledgement(
 
 int main() {
   int socket_fd;
-  sockaddr_in_t socket_addr;
+  sockaddr_in_t socket_addr; // Used to store server address
   unsigned int socket_addr_size = sizeof(socket_addr);
 
   create_socket(&socket_fd);

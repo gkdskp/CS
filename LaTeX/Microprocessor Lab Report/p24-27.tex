@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{red}{rgb}{0.6,0,0} % for strings
+\definecolor{green}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{purple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{docblue}{rgb}{0.25,0.35,0.75} % javadoc
+ 
+\lstset{
+	basicstyle=\normalsize\ttfamily,
+	keywordstyle=\color{purple}\bfseries,
+	stringstyle=\color{red},
+	commentstyle=\color{green},
+	morecomment=[s][\color{docblue}]{/**}{*/},
+	tabsize=4,
+	showspaces=false,
+	showstringspaces=false
+}
+	
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[margin=1.2in]{geometry}
+\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
+\linespread{1.5}
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+		{\LARGE College of Engineering, Trivandrum}\\[3cm]
+		\linespread{1.2}\huge {\bfseries Microprocessor Lab}\\[3cm]
+		\linespread{1}
+		\includegraphics[width=8cm]{img/emblem.jpeg}\\[1cm]
+		{\Large Gokul K\\ S6 CSE \\ Roll No: 21\\ TVE18CS021 }\\[1cm]
+		\textit{ }\\[1cm]
+		{\LARGE 
+			Department of Computer Science\\[0.2cm]
+			\today 
+		}
+	\end{center}
+	
+\end{titlepage}
+\large
+
+\newpage
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{\fontsize{12}{12}\selectfont\nouppercase\leftmark} 
+\fancyhead[LO]{\fontsize{9}{12}\selectfont\nouppercase\rightmark} 
+
+\setcounter{section}{3}
+% Use the current experiment file from experiments/ folder
+\input{experiments/p24_positivenegative.tex}
+
+\newpage
+\input{experiments/p25_countonesandzeros.tex}
+
+\newpage
+\input{experiments/p26_linearsearch.tex}
+
+\newpage
+\input{experiments/p27_factorial.tex}
+\end{document}

@@ -1,0 +1,31 @@
+\section{Decimal to hexadecimal}
+\subsection{Aim}
+To implement decimal to hex conversion
+
+\subsection{Code}
+\begin{lstlisting}
+ORG 0000H
+
+MOV R0, #85H
+MOV R1, #00H
+MOV A, #00H
+
+LOOP:
+	ADD A, #01H
+	DA A
+	INC R1
+	CJNE A, 00H, LOOP ; Run the loop until A = R0
+
+END
+\end{lstlisting}
+
+\subsection{Output}
+\textbf{Input} 85 (R0))\\
+\textbf{Output} 55 (R1)\\
+\begin{center}
+	\includegraphics[width=\textwidth]{img/p32.png}
+\end{center}
+
+
+\subsection{Result}
+Decimal number was converted to hexadecimal on mcu8051ide

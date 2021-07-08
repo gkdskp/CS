@@ -1,0 +1,31 @@
+; Generate first n Fibonacci numbers
+
+ORG 0000H
+
+MOV R0, #08H
+MOV DPTR, #100H
+
+MOV A, #00H
+MOVX @DPTR, A
+INC DPTR
+MOV A, #01H
+MOVX @DPTR, A
+
+LOOP:
+	MOV A, DPL
+	SUBB A, #1
+	MOV DPL, A
+	MOV A, DPH
+	SUBB A, #0H
+	MOV DPH, A
+
+	MOVX A, @DPTR
+	INC DPTR
+	MOV R1, A
+	MOVX A, @DPTR
+	INC DPTR
+	ADD A, R1
+	MOVX @DPTR, A
+
+	DJNZ R0, LOOP
+END

@@ -1,0 +1,42 @@
+\section{Hexadecimal to decimal}
+\subsection{Aim}
+To implement hex to decimal conversion
+
+\subsection{Code}
+\begin{lstlisting}
+ORG 0000H
+
+MOV R0, #55H
+MOV R1, #00H
+MOV R2, #00H
+
+MOV A, R0
+MOV B, #100
+DIV AB
+
+MOV R0, A
+CLR C
+MOV A, B
+MOV B, #10
+DIV AB
+
+SWAP A
+
+MOV R1, A
+MOV A, B
+ORL A, R1
+MOV R1, A
+
+END
+\end{lstlisting}
+
+\subsection{Output}
+\textbf{Input} 55H (R0))\\
+\textbf{Output} 85 (R1)\\
+\begin{center}
+	\includegraphics[width=\textwidth]{img/p31.png}
+\end{center}
+
+
+\subsection{Result}
+Hexadecimal number was converted to decimal on mcu8051ide

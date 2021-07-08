@@ -19,7 +19,7 @@ typedef struct sockaddr_in sockaddr_in_t;
 
 extern int errno;
 
-const int PORT = 8080;
+const int PORT = 3000;
 
 // Create a TCP socket
 void create_socket(int *socket_fd) {
@@ -71,7 +71,6 @@ void read_message(int *socket_fd) {
     }
 
     message_recieved_total += message_recieved;
-    printf("%d", message_recieved);
   }
   
   printf(

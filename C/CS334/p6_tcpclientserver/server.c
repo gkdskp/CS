@@ -21,7 +21,7 @@ typedef struct sockaddr_in sockaddr_in_t;
 
 extern int errno;
 
-const int PORT = 8080;
+const int PORT = 3000;
 const char *MESSAGE = "Hello world";
 
 // Create a socket with TCP as protocol

@@ -1,5 +1,5 @@
 ; Decimal to hex conversion
-; https://www.tutorialspoint.com/bcd-to-binary-conversion-in-8051
+; Code from https://www.tutorialspoint.com/bcd-to-binary-conversion-in-8051
 
 ORG 0000H
 

@@ -25,5 +25,3 @@ ORL A, R1
 MOV R1, A
 
 END
-
-END
